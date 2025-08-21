@@ -42,6 +42,9 @@ dependencies {
 	// mysql
 	runtimeOnly("com.mysql:mysql-connector-j")
 
+	// h2
+	testRuntimeOnly("com.h2database:h2")
+
 	// lombok
 	compileOnly("org.projectlombok:lombok")
 	annotationProcessor("org.projectlombok:lombok")
