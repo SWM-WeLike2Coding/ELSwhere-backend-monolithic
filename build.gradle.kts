@@ -1,9 +1,11 @@
 plugins {
 	kotlin("jvm") version "1.9.25"
 	kotlin("plugin.spring") version "1.9.25"
+	kotlin("plugin.jpa") version "1.9.25"
 	id("org.springframework.boot") version "3.4.8"
 	id("io.spring.dependency-management") version "1.1.7"
-	kotlin("plugin.jpa") version "1.9.25"
+	id("org.jetbrains.kotlinx.kover") version "0.9.1"
+	id("org.sonarqube") version "6.2.0.5505"
 }
 
 group = "com.wl2c"
@@ -40,6 +42,9 @@ dependencies {
 	// mysql
 	runtimeOnly("com.mysql:mysql-connector-j")
 
+	// h2
+	testRuntimeOnly("com.h2database:h2")
+
 	// lombok
 	compileOnly("org.projectlombok:lombok")
 	annotationProcessor("org.projectlombok:lombok")
@@ -67,4 +72,18 @@ allOpen {
 
 tasks.withType<Test> {
 	useJUnitPlatform()
+}
+
+sonar {
+	properties {
+		property("sonar.projectKey", "SWM-WeLike2Coding_ELSwhere-backend-monolithic")
+		property("sonar.organization", "swm-welike2coding")
+
+		// Kotlin 소스/테스트 경로
+		property("sonar.sources", "src/main/kotlin")
+		property("sonar.tests", "src/test/kotlin")
+
+		// Kover 리포트 경로
+		property("sonar.kotlin.coverage.reportPaths", "build/reports/kover/report.xml")
+	}
 }
