@@ -78,6 +78,7 @@ sonar {
 	properties {
 		property("sonar.projectKey", "SWM-WeLike2Coding_ELSwhere-backend-monolithic")
 		property("sonar.organization", "swm-welike2coding")
+		property("sonar.host.url", "https://sonarcloud.io")
 
 		// Kotlin 소스/테스트 경로
 		property("sonar.sources", "src/main/kotlin")
