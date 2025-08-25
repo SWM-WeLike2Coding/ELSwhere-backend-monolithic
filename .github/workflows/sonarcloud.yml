@@ -9,6 +9,7 @@ jobs:
   build:
     name: Build and analyze
     runs-on: ubuntu-latest
+    if: github.repository == 'SWM-WeLike2Coding/ELSwhere-backend-monolithic'
     steps:
       - uses: actions/checkout@v4
         with:
