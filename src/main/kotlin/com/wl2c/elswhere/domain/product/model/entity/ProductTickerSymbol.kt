@@ -24,7 +24,7 @@ class ProductTickerSymbol(
     @Column(nullable = false)
     var equityName: String = tickerSymbol.equityName
 
-    @OneToOne(mappedBy = "productTickerSymbol")
+    @OneToOne(mappedBy = "productTickerSymbol", cascade = [CascadeType.ALL], orphanRemoval = true)
     @PrimaryKeyJoinColumn
     val productEquityVolatility: ProductEquityVolatility? = null
 
