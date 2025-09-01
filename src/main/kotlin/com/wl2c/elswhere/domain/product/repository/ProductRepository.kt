@@ -41,13 +41,15 @@ interface ProductRepository: JpaRepository<Product, Long> {
     fun findOne(@Param("id") id: Long): Product?
 
     @Query("select p from Product p " +
+            "join p.productTickerSymbols subpts on subpts.product.id = p.id " +
+            "join subpts.tickerSymbol ts on ts.id = subpts.tickerSymbol.id " +
             "where p.productState = 'ACTIVE' " +
             "and p.subscriptionEndDate >= CURRENT_DATE " +
             "and p.id <> :targetId " +
             "and p.equityCount = :targetEquityCount " +
-            "and (select count(subpts.id) from ProductTickerSymbol subpts " +
-            "       where subpts.product.id = p.id " +
-            "       and subpts.tickerSymbol.tickerSymbol in :targetEquityTickerSymbols) = :targetEquityCount ")
+            "and ts.tickerSymbol IN :targetEquityTickerSymbols " +
+            "group by p.id " +
+            "having count(subpts.id) = :targetEquityCount ")
     fun findComparisonResults(@Param("targetId") targetId: Long,
                               @Param("targetEquityCount") targetEquityCount: Int,
                               @Param("targetEquityTickerSymbols") targetEquityTickerSymbols: List<String>): List<Product>
