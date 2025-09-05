@@ -1,8 +1,5 @@
 package com.wl2c.elswhere.domain.product.repository
 
-import com.wl2c.elswhere.domain.product.model.MaturityEvaluationDateType
-import com.wl2c.elswhere.domain.product.model.ProductState
-import com.wl2c.elswhere.domain.product.model.ProductType
 import com.wl2c.elswhere.domain.product.model.UnderlyingAssetType
 import com.wl2c.elswhere.domain.product.model.entity.Product
 import com.wl2c.elswhere.mock.ProductMock
@@ -14,8 +11,6 @@ import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest
-import java.math.BigDecimal
-import java.time.LocalDate
 
 @DataJpaTest
 class ProductTickerSymbolRepositoryTest @Autowired constructor(
