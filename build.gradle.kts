@@ -57,6 +57,11 @@ dependencies {
 	// devtools
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 
+	// swagger
+	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.6.0")
+	annotationProcessor("com.github.therapi:therapi-runtime-javadoc-scribe:0.15.0")
+	implementation("com.github.therapi:therapi-runtime-javadoc:0.15.0")
+
 	// test
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
