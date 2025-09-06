@@ -45,7 +45,7 @@ class ProductTickerSymbolRepositoryTest @Autowired constructor(
     @DisplayName("상품 id에 해당하는 상품 티커 심볼 리스트를 잘 가져오는지 확인")
     fun getListByProductId() {
         // given & when
-        val productTickerSymbolList = productTickerSymbolRepository.findAllByProductId(1L)
+        val productTickerSymbolList = productTickerSymbolRepository.findAllByProductId(product1.id!!)
 
         // then
         assertThat(productTickerSymbolList.size).isEqualTo(3)

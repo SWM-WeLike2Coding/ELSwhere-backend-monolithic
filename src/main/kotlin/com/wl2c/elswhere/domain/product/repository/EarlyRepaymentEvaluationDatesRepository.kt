@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.Query
 import org.springframework.data.repository.query.Param
 import java.time.LocalDate
 
-interface EarlyRepaymentEvaluationDatesRepository: JpaRepository<EarlyRepaymentEvaluationDates, Long> {
+interface EarlyRepaymentEvaluationDatesRepository : JpaRepository<EarlyRepaymentEvaluationDates, Long> {
 
     @Query("select count(e) + 1 from EarlyRepaymentEvaluationDates e " +
             "where e.product.id = :productId " +

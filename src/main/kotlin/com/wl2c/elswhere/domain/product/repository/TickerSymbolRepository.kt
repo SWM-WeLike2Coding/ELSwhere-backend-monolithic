@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.jpa.repository.Query
 import org.springframework.data.repository.query.Param
 
-interface TickerSymbolRepository: JpaRepository<TickerSymbol, Long> {
+interface TickerSymbolRepository : JpaRepository<TickerSymbol, Long> {
     @Query("select ts from TickerSymbol ts " +
             "inner join ProductTickerSymbol pts " +
             "on ts.id = pts.tickerSymbol.id " +
