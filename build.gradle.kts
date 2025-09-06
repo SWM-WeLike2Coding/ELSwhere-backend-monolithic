@@ -2,6 +2,7 @@ plugins {
 	kotlin("jvm") version "1.9.25"
 	kotlin("plugin.spring") version "1.9.25"
 	kotlin("plugin.jpa") version "1.9.25"
+	kotlin("kapt") version "2.1.0"
 	id("org.springframework.boot") version "3.4.8"
 	id("io.spring.dependency-management") version "1.1.7"
 	id("org.jetbrains.kotlinx.kover") version "0.9.1"
@@ -41,6 +42,10 @@ dependencies {
 
 	// mysql
 	runtimeOnly("com.mysql:mysql-connector-j")
+
+	// Querydsl
+	implementation("com.querydsl:querydsl-jpa:5.0.0:jakarta")
+	kapt("com.querydsl:querydsl-apt:5.0.0:jakarta")
 
 	// h2
 	testRuntimeOnly("com.h2database:h2")
