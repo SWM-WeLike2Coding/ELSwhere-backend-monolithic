@@ -5,7 +5,6 @@ import com.wl2c.elswhere.domain.product.model.ProductState
 import com.wl2c.elswhere.domain.product.model.ProductType
 import com.wl2c.elswhere.domain.product.model.UnderlyingAssetType
 import com.wl2c.elswhere.domain.product.model.entity.Product
-import com.wl2c.elswhere.util.injectId
 import java.math.BigDecimal
 import java.time.LocalDate
 
