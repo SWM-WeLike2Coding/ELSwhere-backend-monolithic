@@ -11,10 +11,10 @@ import com.wl2c.elswhere.domain.product.model.ProductType
 import com.wl2c.elswhere.domain.product.model.UnderlyingAssetType
 import com.wl2c.elswhere.domain.product.model.dto.request.RequestProductSearchDto
 import com.wl2c.elswhere.domain.product.model.entity.Product
-import com.wl2c.elswhere.domain.product.model.entity.QEarlyRepaymentEvaluationDates.earlyRepaymentEvaluationDates
-import com.wl2c.elswhere.domain.product.model.entity.QProduct.product
-import com.wl2c.elswhere.domain.product.model.entity.QProductTickerSymbol.productTickerSymbol
-import com.wl2c.elswhere.domain.product.model.entity.QTickerSymbol.tickerSymbol1
+import com.wl2c.elswhere.domain.product.model.entity.QEarlyRepaymentEvaluationDates.Companion.earlyRepaymentEvaluationDates
+import com.wl2c.elswhere.domain.product.model.entity.QProduct.Companion.product
+import com.wl2c.elswhere.domain.product.model.entity.QProductTickerSymbol.Companion.productTickerSymbol
+import com.wl2c.elswhere.domain.product.model.entity.QTickerSymbol.Companion.tickerSymbol
 import org.springframework.data.domain.Pageable
 import org.springframework.stereotype.Repository
 import org.springframework.util.StringUtils.hasText
@@ -68,9 +68,9 @@ class ProductSearchRepository(
         if (equityNames != null) {
             val tickerSymbolList = equityNames.mapNotNull { equityName ->
                 queryFactory
-                    .select(tickerSymbol1.tickerSymbol)
-                    .from(tickerSymbol1)
-                    .where(tickerSymbol1.equityName.eq(equityName))
+                    .select(tickerSymbol.tickerSymbol)
+                    .from(tickerSymbol)
+                    .where(tickerSymbol.equityName.eq(equityName))
                     .fetchOne()
             }
 
