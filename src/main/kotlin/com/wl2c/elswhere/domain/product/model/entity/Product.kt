@@ -15,7 +15,7 @@ import java.math.BigDecimal
 import java.time.LocalDate
 
 @Entity
-class Product(
+class Product @Builder private constructor(
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -2,7 +2,6 @@ plugins {
 	kotlin("jvm") version "1.9.25"
 	kotlin("plugin.spring") version "1.9.25"
 	kotlin("plugin.jpa") version "1.9.25"
-	id("com.google.devtools.ksp") version "1.9.25-1.0.20"
 	id("org.springframework.boot") version "3.4.8"
 	id("io.spring.dependency-management") version "1.1.7"
 	id("org.jetbrains.kotlinx.kover") version "0.9.1"
@@ -43,10 +42,6 @@ dependencies {
 	// mysql
 	runtimeOnly("com.mysql:mysql-connector-j")
 
-	// Querydsl
-	implementation("io.github.openfeign.querydsl:querydsl-jpa:7.0")
-	ksp("io.github.openfeign.querydsl:querydsl-ksp-codegen:7.0")
-
 	// h2
 	testRuntimeOnly("com.h2database:h2")
 
@@ -56,11 +51,6 @@ dependencies {
 
 	// devtools
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
-
-	// swagger
-	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.6.0")
-	annotationProcessor("com.github.therapi:therapi-runtime-javadoc-scribe:0.15.0")
-	implementation("com.github.therapi:therapi-runtime-javadoc:0.15.0")
 
 	// test
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
